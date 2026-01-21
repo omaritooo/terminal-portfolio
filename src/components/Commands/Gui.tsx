@@ -3,15 +3,15 @@ import { useUiStore } from '../../store';
 import { getThemeColors } from '../../utils/theme';
 import { User } from '../Terminal/User';
 
-const EMAIL = 'omarash227@gmail.com';
+const GUI_URL = 'https://omar-ashraf.vercel.app/';
 
-export const Email = () => {
+export const Gui = () => {
   const { theme } = useUiStore((state) => state);
   const colors = getThemeColors(theme);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = `mailto:${EMAIL}`;
+      window.open(GUI_URL, '_blank');
     }, 500);
     return () => clearTimeout(timer);
   }, []);
@@ -20,14 +20,19 @@ export const Email = () => {
     <div className='flex flex-col gap-y-2'>
       <div>
         <User />
-        <span className={colors.text100}>email</span>
+        <span className={colors.text100}>gui</span>
       </div>
       <div className='flex flex-col gap-y-2 mb-2'>
-        <span className={colors.text200}>Opening email client...</span>
-        <span>
+        <span>Opening GUI portfolio in a new tab...</span>
+        <span className={colors.text200}>
           If it doesn&apos;t open automatically, click here:{' '}
-          <a className={`${colors.secondary} hover:underline`} href={`mailto:${EMAIL}`}>
-            {EMAIL}
+          <a
+            className={`${colors.secondary} hover:underline`}
+            href={GUI_URL}
+            rel='noopener noreferrer'
+            target='_blank'
+          >
+            {GUI_URL}
           </a>
         </span>
       </div>

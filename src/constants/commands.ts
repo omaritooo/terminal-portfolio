@@ -11,6 +11,8 @@ export const commands: Command[] = [
   { cmd: 'email', desc: 'send an email to me', tab: 8 },
   { cmd: 'socials', desc: 'check out my social accounts', tab: 6 },
   { cmd: 'education', desc: 'my education background', tab: 4 },
+  { cmd: 'experience', desc: 'my work experience', tab: 3 },
+  { cmd: 'stack', desc: 'my tech stack', tab: 8 },
   { cmd: 'projects', desc: "view projects that I've coded", tab: 5 },
   { cmd: 'gui', desc: 'go to my portfolio in GUI', tab: 10 },
   { cmd: 'themes', desc: 'check available themes', tab: 7 },
