@@ -15,14 +15,19 @@ const projects: Project[] = [
     url: 'https://github.com/omaritooo/terminal-portfolio',
   },
   {
-    title: 'Project 2',
-    description: 'Description of your second project',
-    url: 'https://github.com/omaritooo',
+    title: 'Bayn',
+    description: 'Landing page done for an aspiring tech startup in KSA',
+    url: 'https://bayn-landing.netlify.app/',
   },
   {
-    title: 'Project 3',
-    description: 'Description of your third project',
-    url: 'https://github.com/omaritooo',
+    title: 'Al Oula',
+    description: 'Worked on the development of both the website and tv application for Al-Oula',
+    url: 'https://aloula.sba.sa/en/',
+  },
+  {
+    title: 'Stayinformed',
+    description: 'Worked on the development and maintanence of the web application',
+    url: 'https://www.stayinformed.de/en/',
   },
 ];
 

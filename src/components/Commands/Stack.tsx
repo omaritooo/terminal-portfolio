@@ -18,7 +18,7 @@ const stack: StackCategory[] = [
   },
   {
     category: 'Styling',
-    items: ['Tailwind CSS', 'Sass', 'Styled Components'],
+    items: ['Tailwind CSS', 'Sass', 'Styled Components', 'GSAP', 'Framer Motion'],
   },
   {
     category: 'State Management',
@@ -26,7 +26,17 @@ const stack: StackCategory[] = [
   },
   {
     category: 'Tools',
-    items: ['Git', 'Vite', 'Webpack', 'Docker', 'Vitest', 'Jest', 'Playwright', 'Husky'],
+    items: [
+      'Git',
+      'Vite',
+      'Webpack',
+      'Docker',
+      'Vitest',
+      'Jest',
+      'Playwright',
+      'Husky',
+      'Storybook',
+    ],
   },
 ];
 
