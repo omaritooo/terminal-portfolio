@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+
+/* theme.css */
+@theme {
+  --font-ibm: "IBM Plex Mono", monospace;
+
+  /* Dark theme */
+  --color-dark-body: #1D2A35;
+  --color-dark-scroll-handle: #19252E;
+  --color-dark-scroll-handle-hover: #162028;
+  --color-dark-primary: #05CE91;
+  --color-dark-secondary: #FF9D00;
+  --color-dark-text-100: #cbd5e1;
+  --color-dark-text-200: #B2BDCC;
+  --color-dark-text-300: #64748b;
+
+  /* Light theme */
+  --color-light-body: #EFF3F3;
+  --color-light-scroll-handle: #C1C1C1;
+  --color-light-scroll-handle-hover: #AAAAAA;
+  --color-light-primary: #027474;
+  --color-light-secondary: #FF9D00;
+  --color-light-text-100: #334155;
+  --color-light-text-200: #475569;
+  --color-light-text-300: #64748b;
+
+  /* Blue Matrix */
+  --color-blue-matrix-body: #101116;
+  --color-blue-matrix-scroll-handle: #424242;
+  --color-blue-matrix-scroll-handle-hover: #616161;
+  --color-blue-matrix-primary: #00ff9c;
+  --color-blue-matrix-secondary: #60fdff;
+  --color-blue-matrix-text-100: #ffffff;
+  --color-blue-matrix-text-200: #c7c7c7;
+  --color-blue-matrix-text-300: #76ff9f;
+
+  /* Espresso */
+  --color-espresso-body: #323232;
+  --color-espresso-scroll-handle: #5b5b5b;
+  --color-espresso-scroll-handle-hover: #393939;
+  --color-espresso-primary: #E1E48B;
+  --color-espresso-secondary: #A5C260;
+  --color-espresso-text-100: #F7F7F7;
+  --color-espresso-text-200: #EEEEEE;
+  --color-espresso-text-300: #5b5b5b;
+
+  /* Green Goblin */
+  --color-green-goblin-body: #000000;
+  --color-green-goblin-scroll-handle: #2E2E2E;
+  --color-green-goblin-scroll-handle-hover: #414141;
+  --color-green-goblin-primary: #E5E500;
+  --color-green-goblin-secondary: #04A500;
+  --color-green-goblin-text-100: #01FF00;
+  --color-green-goblin-text-200: #04A5B2;
+  --color-green-goblin-text-300: #E50101;
+
+  /* Ubuntu */
+  --color-ubuntu-body: #2D0922;
+  --color-ubuntu-scroll-handle: #F47845;
+  --color-ubuntu-scroll-handle-hover: #E65F31;
+  --color-ubuntu-primary: #80D932;
+  --color-ubuntu-secondary: #80D932;
+  --color-ubuntu-text-100: #FFFFFF;
+  --color-ubuntu-text-200: #E1E9CC;
+  --color-ubuntu-text-300: #CDCDCD;
+}
+
+@layer components {}
