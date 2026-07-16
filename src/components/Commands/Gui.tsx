@@ -3,7 +3,7 @@ import { useUiStore } from '../../store';
 import { getThemeColors } from '../../utils/theme';
 import { User } from '../Terminal/User';
 
-const GUI_URL = 'https://omar-ashraf.vercel.app/';
+const GUI_URL = 'https://www.oashraf.dev';
 
 export const Gui = () => {
   const { theme } = useUiStore((state) => state);
