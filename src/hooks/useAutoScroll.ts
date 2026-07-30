@@ -1,44 +1,46 @@
 import { useCallback, useEffect, useRef } from 'react';
 
+const BOTTOM_THRESHOLD_PX = 48;
+
+const isNearBottom = () => {
+  const { scrollHeight, clientHeight } = document.documentElement;
+  return window.scrollY + clientHeight >= scrollHeight - BOTTOM_THRESHOLD_PX;
+};
+
 export const useAutoScroll = <T>(dependency: T) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const pinnedToBottomRef = useRef(true);
 
-  const scrollToBottom = useCallback(() => {
+  const scrollToBottom = useCallback((focusInput = true) => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: 'smooth',
     });
-    inputRef.current?.focus();
+    if (focusInput) inputRef.current?.focus();
   }, []);
 
-  // Scroll when dependency changes
+  // Track whether the user is following the bottom of the output, so new
+  // content doesn't yank them back down while they're reading history
   useEffect(() => {
-    setTimeout(scrollToBottom, 0);
+    const handleScroll = () => {
+      pinnedToBottomRef.current = isNearBottom();
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll when dependency changes, but only if the user hasn't scrolled away
+  useEffect(() => {
+    if (!pinnedToBottomRef.current) return;
+    const id = setTimeout(() => scrollToBottom(), 0);
+    return () => clearTimeout(id);
   }, [dependency, scrollToBottom]);
 
-  // IntersectionObserver to detect when input goes out of view
+  // Keep input visible on resize, unless the user scrolled up intentionally
   useEffect(() => {
-    const input = inputRef.current;
-    if (!input) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            scrollToBottom();
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px' }
-    );
-
-    observer.observe(input);
-    return () => observer.disconnect();
-  }, [scrollToBottom]);
-
-  // Keep input visible on resize
-  useEffect(() => {
-    const handleResize = () => scrollToBottom();
+    const handleResize = () => {
+      if (pinnedToBottomRef.current) scrollToBottom(false);
+    };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [scrollToBottom]);
